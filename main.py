@@ -27,7 +27,7 @@ def main():
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable)
-    Shot.containers = (updatable, drawable)
+    Shot.containers = (shots, updatable, drawable)
     asteroidfield = AsteroidField()
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -49,6 +49,8 @@ def main():
                     shot.kill() # remove this object
                     asteroid.kill()
         
+            
+
         screen.fill("black")
         for obj in drawable:
             obj.draw(screen)
