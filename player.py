@@ -1,10 +1,13 @@
 import circleshape
 import constants
 import pygame
+from shot import Shot
+
 class Player(circleshape.CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, constants.PLAYER_RADIUS)
         self.rotation = 0
+        self.timer = 0 # Used to limit asteroid shot speed
 
     # in the player class
     def triangle(self):
@@ -25,6 +28,10 @@ class Player(circleshape.CircleShape):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
         self.position += forward * constants.PLAYER_SPEED * dt
 
+    def shoot(self):
+        shot = Shot(self.position.x, self.position.y)
+        shot.velocity = pygame.Vector2(0, 1).rotate(self.rotation) * constants.SHOT_RADIUS
+
     def update(self, dt):
         keys = pygame.key.get_pressed()
 
@@ -36,3 +43,5 @@ class Player(circleshape.CircleShape):
             self.move(dt)
         if keys[pygame.K_s]:
             self.move(-dt)
+        if keys[pygame.K_SPACE]:
+            self.shoot()
