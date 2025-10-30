@@ -46,6 +46,7 @@ def main():
             
             for shot in shots: 
                 if asteroid.collides_with(shot):
+                    print("remove object")
                     shot.kill() # remove this object
                     asteroid.kill()
         
