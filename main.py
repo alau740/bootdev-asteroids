@@ -49,6 +49,7 @@ def main():
                     print("remove object")
                     shot.kill() # remove this object
                     asteroid.kill()
+                    asteroid.split()
         
             
 
