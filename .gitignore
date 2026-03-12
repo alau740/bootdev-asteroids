@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Game state log file (https://www.boot.dev/lessons/ae3772ed-186b-4ab2-82d6-3091e1d14f51)
+game_state.jsonl
